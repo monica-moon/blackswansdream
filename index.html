@@ -372,6 +372,24 @@
             background: #080808;
             color: #ffffff;
         }
+        .hero__bilingual-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.48rem, 1.0vw, 0.58rem);
+            letter-spacing: 0.18em;
+            color: rgba(255, 255, 255, 0.28);
+            text-align: center;
+            margin-top: -28px;
+            margin-bottom: 28px;
+        }
+        .form__lang-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.38);
+            margin-top: 8px;
+            text-align: center;
+        }
         .form__textarea {
             resize: vertical;
             min-height: 80px;
@@ -462,6 +480,7 @@
                 <p class="hero__edition-label">English</p>
             </div>
         </div>
+        <p class="hero__bilingual-note">This book includes both Armenian and English languages in the same edition.</p>
         <div class="hero__text">
             <h1 class="hero__title">Black Swan's Dream</h1>
             <p class="hero__author">Rouzanna Petrosyan</p>
@@ -476,15 +495,16 @@
                 <p class="about__caption">Rouzanna Petrosyan</p>
             </div>
             <div class="about__text-col">
-<h2 class="about__heading">About Rouzanna Petrosyan</h2>
+<h2 class="about__heading">About Rouzanna, daughter of Avetis, Petrosyan (Aleksanyan)</h2>
                 <div class="about__body">
-                    <p>Rouzanna Petrosyan was born on August 2, 1963, in Yerevan, Armenia. She graduated from Secondary School No. 166 in Yerevan and continued her education specializing in radio engineering. In 1978 to 1979, she began studying fashion design in the Czechoslovak Republic.</p>
-                    <p>In 1981, she married in Yerevan and is the devoted mother of four children: Shoghakat, Avetis, Meline, and Hovhannes. In 1990, the family moved to the United States.</p>
-                    <p>Rouzanna completed the Criminal Justice program at Los Angeles Valley College in 2006, while also finishing coursework in Child Development. She later completed courses at Yale University and received her psychologist's license.</p>
-                    <p>Continuing her academic path, she graduated with honors from American Premier University, earning her Bachelor's and Master's degrees in Business Administration. She later defended her doctoral thesis and received a Ph.D. in Business Administration.</p>
-                    <p>She actively supports charitable organizations, serves as Vice President of the Unity Club of Los Angeles, and has participated in international seminars since 2020.</p>
-                    <p>Rouzanna is the author of <em>Desert Flower</em>, <em>Black Swan's Dream</em>, and <em>Secret of the Eclipse</em>. In 2025, she became a member of the Writers Union of the Republic of Armenia.</p>
-                    <p>She is blessed with seven grandchildren.</p>
+                    <p>Rouzanna, daughter of Avetis, Petrosyan (Aleksanyan), was born on August 2, 1963, in Yerevan, Armenia.</p>
+                    <p>She graduated from Secondary School No. 166 in Yerevan, after which she continued her education specializing in the field of radio engineering. In 1978–1979, at the invitation of her aunt, she took her first steps in the study of fashion design in the Czechoslovak Republic.</p>
+                    <p>In 1981, she married in Yerevan and found happiness in raising her two children, Shoghakat and Avetis.</p>
+                    <p>In 1990, the family moved to the United States, where they welcomed two more children, Meline and Hovhannes.</p>
+                    <p>In 2006, Rouzanna completed the Criminal Justice program at Los Angeles Valley College, simultaneously finishing coursework in Child Development. Pursuing further education, she completed courses at Yale University and received her psychologist's license. She then enrolled at American Premier University, where she graduated with honors with Bachelor's and then Master's degrees in Business Administration. At the same university, she defended her doctoral thesis and earned a Ph.D. in Business Administration.</p>
+                    <p>Rouzanna actively collaborates with and supports charitable organizations, providing assistance to families in need. She serves as the Vice President of the "Unity Club" of Los Angeles and, since 2020, has participated in various seminars across different countries.</p>
+                    <p>She appears in numerous television programs and is the author of several articles and personal books, including <em>Desert Flower</em>, <em>Black Swan's Dream</em>, and <em>Secret of the Eclipse</em>. Rouzanna has also become a member of the Writers Union of the Republic of Armenia since 2025.</p>
+                    <p>She is blessed and happy with her seven grandchildren.</p>
                 </div>
             </div>
         </div>
@@ -550,17 +570,10 @@
                     <input class="form__input" type="number" id="quantity" name="quantity" min="1" value="1" required>
                 </div>
                 <div class="form__field">
-                    <label class="form__label" for="language">Language <span class="req">*</span></label>
-                    <select class="form__select" id="language" name="language" required>
-                        <option value="" disabled selected>Select edition</option>
-                        <option value="Armenian">Armenian</option>
-                        <option value="English">English</option>
-                    </select>
-                </div>
-                <div class="form__field">
                     <label class="form__label" for="notes">Additional Notes</label>
                     <textarea class="form__textarea" id="notes" name="notes"></textarea>
                 </div>
+                <p class="form__lang-note">This edition includes both Armenian and English languages.</p>
                 <button type="submit" class="form__submit">Continue to Payment</button>
             </form>
         </div>
