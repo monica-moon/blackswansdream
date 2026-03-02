@@ -239,6 +239,14 @@
             color: #ffffff;
             margin: 0 0 16px;
         }
+        .buy__price {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-weight: 600;
+            color: #B11226;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
         .buy__sub {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(0.67rem, 1.5vw, 0.82rem);
@@ -485,6 +493,7 @@
         <div class="buy__inner">
             <img class="buy__swan" src="swann.png" alt="Black Swan">
             <h2 class="buy__heading">Purchase the Book</h2>
+            <p class="buy__price">$55</p>
             <p class="buy__sub">Support the author directly and receive your copy.</p>
             <form class="order-form" id="order-form" action="https://formspree.io/f/xzdalrpp" method="POST">
                 <input type="hidden" name="_next" value="https://cash.app/$RouzannaPetrosyan?qr=1">
