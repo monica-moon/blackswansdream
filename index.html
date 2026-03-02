@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Black Swan's Dream  Rouzanna Petrosyan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px 48px;
+        }
+        .site-logo {
+            display: block;
+            width: clamp(80px, 14vw, 140px);
+            height: clamp(80px, 14vw, 140px);
+            object-fit: contain;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header__socials {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .header__socials a {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+        }
+        .header__socials a:hover {
+            color: #B11226;
+        }
+        .header__socials svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .hero__covers {
+            display: flex;
+            gap: clamp(18px, 3.5vw, 48px);
+            margin-bottom: 44px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero__edition {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero__cover {
+            width: min(190px, 38vw);
+            aspect-ratio: 2 / 3;
+            background: #080808;
+            border: 1px solid #1e1e1e;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .hero__cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero__edition-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.48rem, 1.1vw, 0.6rem);
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .hero__text {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero__title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.55rem, 5.2vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #ffffff;
+            line-height: 1.15;
+        }
+        .hero__rule {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #B11226;
+            margin: 14px 0 18px;
+        }
+        .hero__author {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.6rem, 1.9vw, 0.82rem);
+            font-weight: 400;
+            letter-spacing: 0.46em;
+            text-transform: uppercase;
+            color: #B11226;
+        }
+        .about {
+            background: #000000;
+            padding: clamp(64px, 10vw, 120px) clamp(16px, 5vw, 80px) 40px;
+        }
+        .about__inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: clamp(22px, 4.5vw, 76px);
+        }
+        .about__image-col {
+            flex: 0 0 min(250px, 29vw);
+            width: min(250px, 29vw);
+        }
+        .about__portrait {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #060606;
+            border: 1px solid #1a1a1a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about__portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .about__caption {
+            margin-top: 10px;
+            font-size: clamp(0.5rem, 1.1vw, 0.62rem);
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.22);
+            text-align: center;
+        }
+        .about__text-col {
+            flex: 1 1 0;
+            min-width: 0;
+            padding-top: 4px;
+        }
+        .about__accent {
+            display: block;
+            width: 34px;
+            height: 1px;
+            background: #B11226;
+            margin-bottom: 18px;
+        }
+        .about__heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 2.6vw, 1.8rem);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        .about__body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.67rem, 1.5vw, 0.88rem);
+            font-weight: 300;
+            line-height: 1.95;
+            color: rgba(255, 255, 255, 0.66);
+        }
+        .about__body p + p {
+            margin-top: 14px;
+        }
+        .buy {
+            background: #000000;
+            padding: 40px 24px clamp(32px, 5vw, 60px);
+            text-align: center;
+            border-top: 1px solid #111111;
+        }
+        .buy__inner {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .buy__swan {
+            display: block;
+            width: clamp(160px, 30vw, 300px);
+            margin: 0 auto 0;
+            object-fit: contain;
+        }
+        .buy__accent {
+            display: block;
+            width: 34px;
+            height: 1px;
+            background: #B11226;
+            margin: 0 auto 20px;
+        }
+        .buy__heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 2.8vw, 1.8rem);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #ffffff;
+            margin: 0 0 16px;
+        }
+        .buy__sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.67rem, 1.5vw, 0.82rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.44);
+            letter-spacing: 0.12em;
+            margin-bottom: 48px;
+        }
+        .buy__btn {
+            display: inline-block;
+            background: #B11226;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.65rem, 1.7vw, 0.82rem);
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 17px 50px;
+            border: 1px solid #B11226;
+            white-space: nowrap;
+            transition: background 0.22s ease, border-color 0.22s ease;
+        }
+        .buy__btn:hover {
+            background: #7e0d1a;
+            border-color: #7e0d1a;
+        }
+        .footer-email {
+            background: #000000;
+            border-top: 1px solid #111111;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .footer-email__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.62rem, 1.4vw, 0.78rem);
+            font-weight: 300;
+            letter-spacing: 0.22em;
+            transition: color 0.2s ease;
+        }
+        .footer-email__link:hover {
+            color: #B11226;
+        }
+        .footer-email__link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        footer {
+            background: #000000;
+            border-top: 1px solid #B11226;
+            padding: 26px 24px;
+            text-align: center;
+        }
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.28);
+        }
+        .order-form {
+            text-align: left;
+            margin-top: 0;
+        }
+        .form__field {
+            margin-bottom: 20px;
+        }
+        .form__label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.44);
+            margin-bottom: 8px;
+        }
+        .form__label .req {
+            color: #B11226;
+            margin-left: 2px;
+        }
+        .form__input,
+        .form__select,
+        .form__textarea {
+            width: 100%;
+            background: #080808;
+            border: 1px solid #1e1e1e;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 300;
+            padding: 12px 14px;
+            outline: none;
+            transition: border-color 0.2s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form__input::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+        .form__input:focus,
+        .form__select:focus,
+        .form__textarea:focus {
+            border-color: #B11226;
+        }
+        .form__select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,0.35)'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-color: #080808;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+        .form__select option {
+            background: #080808;
+            color: #ffffff;
+        }
+        .form__textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .form__address-group {
+            border: 1px solid #1a1a1a;
+            padding: 18px 18px 0;
+            margin-bottom: 20px;
+        }
+        .form__address-title {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.44);
+            margin-bottom: 16px;
+        }
+        .form__row {
+            display: flex;
+            gap: 16px;
+        }
+        .form__row .form__field {
+            flex: 1;
+        }
+        .form__submit {
+            display: block;
+            width: 100%;
+            background: #B11226;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.65rem, 1.7vw, 0.82rem);
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            padding: 17px 50px;
+            border: 1px solid #B11226;
+            cursor: pointer;
+            margin-top: 32px;
+            transition: background 0.22s ease, border-color 0.22s ease;
+        }
+        .form__submit:hover {
+            background: #7e0d1a;
+            border-color: #7e0d1a;
+        }
+        @media (max-width: 640px) {
+            .hero {
+                min-height: unset;
+                justify-content: flex-start;
+                padding: 112px 24px 36px;
+            }
+            .about {
+                padding-top: 36px;
+            }
+            .form__input,
+            .form__select,
+            .form__textarea {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="site-logo" src="flower.png" alt="Rouzanna Petrosyan">
+        <nav class="header__socials">
+            <a href="https://youtube.com/@blackswansdream?si=AH270JnjNzP3wUmA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/blackswansdream?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+        </nav>
+    </header>
+    <section class="hero" id="hero">
+        <div class="hero__covers">
+            <div class="hero__edition">
+                <div class="hero__cover">
+                    <img src="BLACK%20SWAN%20COVER%202.jpeg" alt="Black Swan's Dream Armenian Edition">
+                </div>
+                <p class="hero__edition-label">Armenian</p>
+            </div>
+            <div class="hero__edition">
+                <div class="hero__cover">
+                    <img src="rouzanna%20english.png" alt="Black Swan's Dream English Edition">
+                </div>
+                <p class="hero__edition-label">English</p>
+            </div>
+        </div>
+        <div class="hero__text">
+            <h1 class="hero__title">Black Swan's Dream</h1>
+            <p class="hero__author">Rouzanna Petrosyan</p>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about__inner">
+            <div class="about__image-col">
+                <div class="about__portrait">
+                    <img src="rooo.png" alt="Rouzanna Petrosyan">
+                </div>
+                <p class="about__caption">Rouzanna Petrosyan</p>
+            </div>
+            <div class="about__text-col">
+<h2 class="about__heading">About Rouzanna Petrosyan</h2>
+                <div class="about__body">
+                    <p>Rouzanna Petrosyan was born on August 2, 1963, in Yerevan, Armenia. She graduated from Secondary School No. 166 in Yerevan and continued her education specializing in radio engineering. In 1978 to 1979, she began studying fashion design in the Czechoslovak Republic.</p>
+                    <p>In 1981, she married in Yerevan and is the devoted mother of four children: Shoghakat, Avetis, Meline, and Hovhannes. In 1990, the family moved to the United States.</p>
+                    <p>Rouzanna completed the Criminal Justice program at Los Angeles Valley College in 2006, while also finishing coursework in Child Development. She later completed courses at Yale University and received her psychologist's license.</p>
+                    <p>Continuing her academic path, she graduated with honors from American Premier University, earning her Bachelor's and Master's degrees in Business Administration. She later defended her doctoral thesis and received a Ph.D. in Business Administration.</p>
+                    <p>She actively supports charitable organizations, serves as Vice President of the Unity Club of Los Angeles, and has participated in international seminars since 2020.</p>
+                    <p>Rouzanna is the author of <em>Desert Flower</em>, <em>Black Swan's Dream</em>, and <em>Secret of the Eclipse</em>. In 2025, she became a member of the Writers Union of the Republic of Armenia.</p>
+                    <p>She is blessed with seven grandchildren.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="buy" id="buy">
+        <div class="buy__inner">
+            <img class="buy__swan" src="swann.png" alt="Black Swan">
+            <h2 class="buy__heading">Purchase the Book</h2>
+            <p class="buy__sub">Support the author directly and receive your copy.</p>
+            <form class="order-form" id="order-form" action="https://formspree.io/f/xzdalrpp" method="POST">
+                <input type="hidden" name="_next" value="https://cash.app/$RouzannaPetrosyan?qr=1">
+                <input type="hidden" name="_subject" value="New Book Order — Black Swan's Dream">
+                <div class="form__field">
+                    <label class="form__label" for="first_name">First Name <span class="req">*</span></label>
+                    <input class="form__input" type="text" id="first_name" name="first_name" required>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="last_name">Last Name <span class="req">*</span></label>
+                    <input class="form__input" type="text" id="last_name" name="last_name" required>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="email">Email Address <span class="req">*</span></label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="phone">Phone Number <span class="req">*</span></label>
+                    <input class="form__input" type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="cashapp_name">Cash App Name</label>
+                    <input class="form__input" type="text" id="cashapp_name" name="cashapp_name" placeholder="$username">
+                </div>
+                <div class="form__address-group">
+                    <span class="form__address-title">Shipping Address</span>
+                    <div class="form__field">
+                        <label class="form__label" for="street">Street <span class="req">*</span></label>
+                        <input class="form__input" type="text" id="street" name="street" required>
+                    </div>
+                    <div class="form__row">
+                        <div class="form__field">
+                            <label class="form__label" for="city">City <span class="req">*</span></label>
+                            <input class="form__input" type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form__field">
+                            <label class="form__label" for="state">State <span class="req">*</span></label>
+                            <input class="form__input" type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <div class="form__field">
+                            <label class="form__label" for="zip">ZIP Code <span class="req">*</span></label>
+                            <input class="form__input" type="text" id="zip" name="zip" required>
+                        </div>
+                        <div class="form__field">
+                            <label class="form__label" for="country">Country <span class="req">*</span></label>
+                            <input class="form__input" type="text" id="country" name="country" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="quantity">Quantity <span class="req">*</span></label>
+                    <input class="form__input" type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="language">Language <span class="req">*</span></label>
+                    <select class="form__select" id="language" name="language" required>
+                        <option value="" disabled selected>Select edition</option>
+                        <option value="Armenian">Armenian</option>
+                        <option value="English">English</option>
+                    </select>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="notes">Additional Notes</label>
+                    <textarea class="form__textarea" id="notes" name="notes"></textarea>
+                </div>
+                <button type="submit" class="form__submit">Continue to Payment</button>
+            </form>
+        </div>
+    </section>
+    <div class="footer-email">
+        <a class="footer-email__link" href="mailto:author@blackswansdream.com">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            author@blackswansdream.com
+        </a>
+    </div>
+    <footer>
+        <p>© 2026 Black Swan's Dream</p>
+    </footer>
+    <script>
+        var form = document.getElementById('order-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = form.querySelector('.form__submit');
+            btn.disabled = true;
+            btn.textContent = 'Submitting\u2026';
+            fetch('https://formspree.io/f/xzdalrpp', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(function(res) {
+                if (res.ok) {
+                    window.location.href = 'https://cash.app/$RouzannaPetrosyan?qr=1';
+                } else {
+                    return res.json().then(function(data) {
+                        btn.disabled = false;
+                        btn.textContent = 'Continue to Payment';
+                        alert(data.errors ? data.errors.map(function(e){return e.message;}).join(', ') : 'Submission failed. Please try again.');
+                    });
+                }
+            })
+            .catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Continue to Payment';
+                alert('Network error. Please check your connection and try again.');
+            });
+        });
+    </script>
+</body>
+</html>
